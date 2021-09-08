@@ -5,6 +5,10 @@
 name: 'Arduino CI'
 description: 'Build code with arduino-ci'
 inputs:
+  repo-token:
+    description: 'The github repository token, so that the deploy action can be run'
+    reauired: true
+    default: 'You must pass e.g., secrets.GH_REPO_TOKEN for this action to work. This means the action can perform github operations on your behalf, so ensure that it will only do actions you approve of'
   pretty-name:
     description: 'The pretty name of the repository'
     reauired: true
@@ -36,7 +40,7 @@ runs:
 
     - name: doxygen
       env:
-        GH_REPO_TOKEN: ${{ secrets.GH_REPO_TOKEN }}
+        GH_REPO_TOKEN: ${{ inputs.repo-token }}
         PRETTYNAME : ${{ inputs.pretty-name }}
       run: bash ci/doxy_gen_and_deploy.sh
       shell: bash
