@@ -5,7 +5,10 @@
 name: 'Arduino CI'
 description: 'Build code with arduino-ci'
 inputs:
-  pretty-name: 'The pretty name of the repository'
+  pretty-name:
+    description: 'The pretty name of the repository'
+    reauired: true
+    default: '(set the pretty name in the actions .yml file)'
 
 runs:
   using: "composite"
