@@ -48,6 +48,7 @@ runs:
     - name: upload examples artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: examples hex files
+        name: examples hex & uf2 files
         path: |
             examples/*/build/*/*.hex
+            examples/*/build/*/*.uf2
